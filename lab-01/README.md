@@ -1,7 +1,5 @@
 # Lab 1: Node.js and Express Server
 
-**Live deployment URL:** [https://backend-labs-3.onrender.com/)
-
 **Subject:** Backend Development Fundamentals  
 **Year/Term:** Year II, Term II  
 **University:** Aurora Deemed to be University  
@@ -19,7 +17,7 @@
 
 This lab demonstrates the fundamentals of creating and running a Node.js backend server with Express.js. It covers project initialization with npm, dependency installation, Express application setup, route handling, JSON responses, date and time generation, HTTP status codes, and handling unknown routes.
 
-The current implementation uses Express.js in `server.js`. The basic server in this workspace is started with `app.listen(3000)`.
+The current implementation uses Express.js in `server.js`. It listens on the port provided by the hosting platform, or port `3000` when run locally.
 
 ## Technologies Used
 
@@ -74,10 +72,10 @@ lab-01/
 
 ### Start the server
 
-This project does not currently define an `npm start` script in `package.json`, so run:
+Start the server with:
 
 ```bash
-node server.js
+npm start
 ```
 
 The server listens on:
@@ -93,7 +91,7 @@ Stop the server with `Ctrl+C`.
 | HTTP Method | Path             | Description                                                                                 | Expected Status Code |
 | ----------- | ---------------- | ------------------------------------------------------------------------------------------- | -------------------: |
 | GET         | `/`              | Returns `Welcome to my server!`                                                             |                  200 |
-| GET         | `/about`         | Returns JSON containing the name `Shiva` and the current section placeholder `Your Section` |                  200 |
+| GET         | `/about`         | Returns JSON containing the name `Sathwik` and section `S-26`                               |                  200 |
 | GET         | `/time`          | Returns the current date and time generated with `new Date()`                               |                  200 |
 | Any         | Any unknown path | Returns `Page Not Found` through the 404 middleware                                         |                  404 |
 
@@ -124,7 +122,17 @@ http://localhost:3000/unknown
 
 ![Unknown route displaying the Page Not Found message](./screenshot/not-found.png)
 
-The application is deployed on Render and is available at [https://backend-labs-3.onrender.com/). Render installs dependencies with `npm install` and starts the application with `npm start`.
+## Deploy to Render
+
+Create a **Web Service** in Render and connect this GitHub repository with the following settings:
+
+| Setting | Value |
+| --- | --- |
+| Root Directory | `lab-01` |
+| Build Command | `npm install` |
+| Start Command | `npm start` |
+
+Render provides the port through the `PORT` environment variable. The server uses it automatically. After deployment, open the service URL to check the home route; `/about` and `/time` are also available.
 
 ## Problems Faced and Solutions
 
@@ -140,7 +148,7 @@ The application is deployed on Render and is available at [https://backend-labs-
 - Created a Node.js project with npm.
 - Understood the purpose of `package.json`, `package-lock.json`, and `node_modules/`.
 - Installed and used Express.js.
-- Created an Express application that listens on port 3000.
+- Created an Express application that listens on the platform-provided port or port 3000 locally.
 - Implemented GET routes and returned text and JSON responses.
 - Generated the current date and time using `new Date()`.
 - Applied HTTP status codes for successful and unknown requests.
