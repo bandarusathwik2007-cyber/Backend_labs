@@ -21,7 +21,7 @@
 
 This project connects an Express.js server to an SQLite database and exposes HTTP routes for performing Create, Read, Update, and Delete (CRUD) operations on book records.
 
-**Live deployment URL:** https://backend-labs-4-iu90.onrender.com/books
+**Live deployment URL:** https://backend-labs-0cae.onrender.com/
 
 ## Project Objective
 
